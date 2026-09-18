@@ -4,6 +4,9 @@
   "description": "��#\u0000 \u0000B\u0000a\u0000c\u0000k\u0000e\u0000n\u0000d\u0000-\u0000E\u0000x\u0000p\u0000r\u0000e\u0000s\u0000s\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
+    "watch": "nodemon src/server.js",
+  
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +22,8 @@
   "homepage": "https://github.com/Umang-Bajra/Backend-Express#readme",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
