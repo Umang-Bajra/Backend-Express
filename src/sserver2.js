@@ -17,6 +17,49 @@ const port = 3000
 const mongoose=require('mongoose')
 require('dotenv').config()
 
+//importing new schema
+const users= require('./models/users')
+
+//make a route
+app.post ('/create/user',async(req,res,next)=>{
+
+    try{
+        //create user
+        const user = await users.create(req.body);
+        res.status(201).json({
+            "success" : true,
+            data:user
+        })
+
+    }
+    catch(error){
+res.status(400).json({
+    "success":false,
+    error:error.message
+})
+    }
+})
+
+//read
+//make a route
+app.get ('/read/user',async(req,res,next)=>{
+
+    try{
+        //create user
+        const user = await users.find();
+        res.status(201).json({
+            "success" : true,
+            data:user
+        })
+
+    }
+    catch(error){
+res.status(400).json({
+    "success":false,
+    error:error.message
+})
+    }
+})
 //connection 
 const connectDB = async()=>{
     try{
