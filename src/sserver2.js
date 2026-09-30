@@ -102,8 +102,8 @@ age:user.age
         })
     }
 })
-
-
+//used to display the data of X that is in cookie 
+//used for when cookies are cleared to display not found
 app.get('/me', authenticateToken,async(req,res)=>{
 const user =await users.findById(req.auth.userId).select('-password')
 if(!user){
@@ -179,7 +179,7 @@ app.delete ('/delete/user',async(req,res,next)=>{
     
     else{
         console.log("password not matched");
-        return res.status(403).josn({
+        return res.status(403).json({
             "message":"password does not matched"
         })
     }
@@ -225,64 +225,6 @@ const connectDB = async()=>{
         process.exit(1);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 connectDB().then(()=>{
 
